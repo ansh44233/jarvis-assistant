@@ -9,7 +9,7 @@ from .store import Store
 from .ai import chat as ai_chat, OllamaError
 from .timeparse import describe, extract_repeat, extract_when
 
-HELP = """\\
+HELP = """\
 note <text>               save a note            notes | find <word>
 task <text> [when]        add a task             tasks | done <id>
 remind me <text> <when>   set a reminder         reminders
@@ -29,18 +29,18 @@ class Assistant:
         self.clock = clock
         self.name = name
         self.routes: list[tuple[re.Pattern, Callable[[re.Match], str]]] = [
-            (re.compile(r"^(?:add\\s+)?(?:note|remember)\\s*[:\\-]?\\s+(.+)$", re.I), self.add_note),
-            (re.compile(r"^(?:show\\s+|list\\s+)?notes$", re.I), lambda m: self.list_notes()),
-            (re.compile(r"^(?:find|search)\\s+(?:notes?\\s+)?(.+)$", re.I), self.find_notes),
-            (re.compile(r"^(?:add\\s+)?(?:task|todo)\\s*[:\\-]?\\s+(.+)$", re.I), self.add_task),
-            (re.compile(r"^(?:show\\s+|list\\s+)?(?:tasks|todos?)$", re.I), lambda m: self.list_tasks()),
-            (re.compile(r"^(?:done|finish|complete)\\s+#?(\\d+)$", re.I), self.finish_task),
-            (re.compile(r"^remind\\s+me\\s+(?:to\\s+)?(.+)$", re.I), self.add_reminder),
-            (re.compile(r"^(?:show\\s+|list\\s+)?reminders$", re.I), lambda m: self.list_reminders()),
-            (re.compile(r"^(?:delete|remove)\\s+(note|task|reminder)\\s+#?(\\d+)$", re.I), self.delete),
+            (re.compile(r"^(?:add\s+)?(?:note|remember)\s*[:\-]?\s+(.+)$", re.I), self.add_note),
+            (re.compile(r"^(?:show\s+|list\s+)?notes$", re.I), lambda m: self.list_notes()),
+            (re.compile(r"^(?:find|search)\s+(?:notes?\s+)?(.+)$", re.I), self.find_notes),
+            (re.compile(r"^(?:add\s+)?(?:task|todo)\s*[:\-]?\s+(.+)$", re.I), self.add_task),
+            (re.compile(r"^(?:show\s+|list\s+)?(?:tasks|todos?)$", re.I), lambda m: self.list_tasks()),
+            (re.compile(r"^(?:done|finish|complete)\s+#?(\d+)$", re.I), self.finish_task),
+            (re.compile(r"^remind\s+me\s+(?:to\s+)?(.+)$", re.I), self.add_reminder),
+            (re.compile(r"^(?:show\s+|list\s+)?reminders$", re.I), lambda m: self.list_reminders()),
+            (re.compile(r"^(?:delete|remove)\s+(note|task|reminder)\s+#?(\d+)$", re.I), self.delete),
             (re.compile(r"^(?:brief|agenda|today|status)$", re.I), lambda m: self.brief()),
-            (re.compile(r"^(?:chat|ask)\\s+(.+)$", re.I), self.chat),
-            (re.compile(r"^(?:help|\\?)$", re.I), lambda m: HELP),
+            (re.compile(r"^(?:chat|ask)\s+(.+)$", re.I), self.chat),
+            (re.compile(r"^(?:help|\?)$", re.I), lambda m: HELP),
         ]
 
     def handle(self, text: str) -> str:
@@ -63,11 +63,11 @@ class Assistant:
 
     def list_notes(self) -> str:
         rows = self.store.notes()
-        return "\\n".join(f"{r['id']:>3}. {r['body']}" for r in rows) or "No notes yet."
+        return "\n".join(f"{r['id']:>3}. {r['body']}" for r in rows) or "No notes yet."
 
     def find_notes(self, m: re.Match) -> str:
         rows = self.store.notes(m.group(1).strip())
-        return "\\n".join(f"{r['id']:>3}. {r['body']}" for r in rows) or "Nothing matches."
+        return "\n".join(f"{r['id']:>3}. {r['body']}" for r in rows) or "Nothing matches."
 
     def add_task(self, m: re.Match) -> str:
         now = self.clock()
@@ -89,7 +89,7 @@ class Assistant:
             if r["due"]:
                 due = f"  ({describe(datetime.fromisoformat(r['due']), now, bool(r['has_time']))})"
             lines.append(f"{r['id']:>3}. [ ] {r['title']}{due}")
-        return "\\n".join(lines) or "Nothing to do. Enjoy it."
+        return "\n".join(lines) or "Nothing to do. Enjoy it."
 
     def finish_task(self, m: re.Match) -> str:
         tid = int(m.group(1))
@@ -117,7 +117,7 @@ class Assistant:
         now = self.clock()
         rows = self.store.reminders()
         return (
-            "\\n".join(
+            "\n".join(
                 f"{r['id']:>3}. {r['body']}  ({describe(datetime.fromisoformat(r['at']), now)}"
                 f"{', ' + r['repeat'] if r['repeat'] else ''})"
                 for r in rows
@@ -165,4 +165,4 @@ class Assistant:
             lines += [f"  - {r['body']} ({datetime.fromisoformat(r['at']):%H:%M})" for r in upcoming]
         open_count = len(self.store.tasks())
         lines.append(f"{open_count} open task{'s' * (open_count != 1)}.")
-        return "\\n".join(lines)
+        return "\n".join(lines)
