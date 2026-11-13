@@ -36,7 +36,7 @@ It combines a command-line interface with a browser dashboard. Save notes, organ
 
 The core application uses Python's standard library and SQLite. No hosted AI account is required for its core productivity features.
 
-> **Try before installing:** [Open the interactive browser demo](https://ansh44233.github.io/jarvis-assistant/). It runs with sample data in your browser and does not connect to your personal JARVIS database.
+ > **Try before installing:** [Open the public JARVIS demo](https://ansh44233.github.io/jarvis-assistant/). It includes live conversational AI through a separately deployed Cloudflare Worker, browser speech input/output, and a temporary sample workspace. It does not connect to your personal JARVIS database.
 
 ## 🚀 Highlights
 
@@ -65,7 +65,7 @@ The core application uses Python's standard library and SQLite. No hosted AI acc
 
 **[Launch the J.A.R.V.I.S. interactive demo →](https://ansh44233.github.io/jarvis-assistant/)**
 
-The public demo is intentionally separate from the real application. It uses temporary sample data and simulates notes, tasks, reminders, and the daily brief entirely in the browser. It does not access a user's local database, connect to Ollama, or send commands to a hosted Python server.
+The public demo is intentionally separate from the desktop application. It can answer natural-language questions through Cloudflare Workers AI, use browser speech input/output, and simulate notes, tasks, reminders, and the daily brief in the browser. The demo does not access a visitor's local database, private files, or desktop controls. Its sample workspace is temporary.
 
 To try it, enter `help`, then test commands such as:
 
@@ -78,7 +78,7 @@ notes
 tasks
 ```
 
-The full Python dashboard is different: it runs on your own machine at `http://127.0.0.1:8765`.
+The full Python dashboard is different: it runs on your own machine at `http://127.0.0.1:8765` and can use your locally installed Ollama model.
 
 ## 🧰 Tech stack
 
@@ -87,7 +87,7 @@ The full Python dashboard is different: it runs on your own machine at `http://1
 - **Web interface:** HTML, CSS, vanilla JavaScript, Python standard-library HTTP server
 - **Optional AI:** Ollama local HTTP API
 - **Automation:** GitHub Actions
-- **Public demo hosting:** GitHub Pages
+- **Public demo hosting:** GitHub Pages + Cloudflare Workers AI
 
 ## ⚡ Quick start
 
@@ -306,18 +306,43 @@ The tests cover command handling, task and reminder behavior, date parsing, SQLi
 
 GitHub Actions runs the test suite across Python 3.10, 3.11, 3.12, and 3.13.
 
-## 🌐 Hosting the demo
+## 🌐 Hosting the public AI demo
 
-The public demo is a static site in `demo/`. The workflow at `.github/workflows/pages.yml` deploys it to GitHub Pages whenever the demo or workflow changes on `main`.
+The frontend is hosted on GitHub Pages. Natural conversation is handled by a separate Cloudflare Worker so that no AI credentials or private keys are placed in browser JavaScript.
 
-If Pages has not been enabled for the repository yet:
+### Deploy the AI backend
 
-1. Open **Settings → Pages** in this GitHub repository.
-2. Under **Build and deployment**, choose **GitHub Actions** as the source.
-3. Open the **Actions** tab and run **Deploy public demo to GitHub Pages** (or push a change to `demo/`).
-4. When the deployment workflow succeeds, the demo is available at:
+Requirements: a Cloudflare account, Node.js, and npm.
 
-   **https://ansh44233.github.io/jarvis-assistant/**
+1. Clone this repository and open a terminal in the `worker/` directory.
+2. Authenticate Wrangler with your Cloudflare account:
+
+   ```bash
+   npx wrangler login
+   ```
+
+3. Deploy the Worker:
+
+   ```bash
+   npx wrangler deploy
+   ```
+
+4. Copy the deployed `https://<worker-name>.<your-subdomain>.workers.dev` URL.
+5. In `demo/index.html`, replace the `API_URL` placeholder with that exact Worker URL and commit the change.
+6. GitHub Actions will publish the updated frontend to GitHub Pages.
+
+The Worker uses the native Cloudflare Workers AI binding configured in `worker/wrangler.toml` and the `@cf/meta/llama-3.1-8b-instruct` model. Cloudflare account setup and AI usage limits or charges may apply; check the current Cloudflare Workers AI pricing before enabling the public endpoint. The Worker accepts requests only from this project's GitHub Pages origin, validates message size, limits conversation history sent to the model, and does not store chat transcripts.
+
+### Demo boundaries
+
+- AI chat requires the Cloudflare Worker to be deployed and its URL configured in the frontend.
+- Voice input/output uses browser speech features and requires a compatible browser and microphone permission.
+- Notes, tasks, and reminders in the public demo are temporary browser-side sample data; they are not synchronized with the local Python app.
+- The local Python dashboard and its Ollama integration remain independent of the public demo.
+
+The workflow at `.github/workflows/pages.yml` deploys the `demo/` folder to GitHub Pages whenever the demo or workflow changes on `main`.
+
+Public URL: **https://ansh44233.github.io/jarvis-assistant/**
 
 ## ⭐ Star History
 
