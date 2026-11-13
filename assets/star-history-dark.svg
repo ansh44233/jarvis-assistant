@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
-<title id="title">J.A.R.V.I.S. GitHub star history</title>
-<desc id="desc">The chart will be generated automatically by the repository's GitHub Actions workflow.</desc>
-<rect width="900" height="420" rx="18" fill="#101010"/>
-<text x="48" y="58" fill="#f4f4f5" font-family="Arial,sans-serif" font-size="25" font-weight="700">J.A.R.V.I.S. · Star History</text>
-<text x="48" y="91" fill="#a1a1aa" font-family="Arial,sans-serif" font-size="14">The first historical chart is being prepared.</text>
-<path d="M72 325H830M72 150V325" stroke="#3f3f46" stroke-width="1.5"/>
-<text x="450" y="382" text-anchor="middle" fill="#a1a1aa" font-family="Arial,sans-serif" font-size="13">Updated automatically by GitHub Actions</text>
-</svg>
