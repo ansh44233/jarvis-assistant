@@ -106,7 +106,7 @@ function render(){
  $('#activity-list').replaceChildren();$('#full-activity').replaceChildren();activity.forEach(s=>{const x=document.createElement('div');x.className='activity-row';const dot=document.createElement('span'),label=document.createElement('span');dot.className='dot';label.textContent=s;x.append(dot,label);$('#activity-list').append(x);$('#full-activity').append(x.cloneNode(true))});
 }
 async function askAI(message){
- if(apiConfigured){const response=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,history:chatHistory.slice(-8)})});const data=await response.json();if(!response.ok)throw new Error(data.error||'AI service returned an error.');return String(data.reply||'I could not form a reply.')}
+ if(apiConfigured){const response=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,history:chatHistory.slice(-8)})});const data=await response.json();if(!response.ok)throw new Error(data.error||'AI service returned an error.');const reply=String(data.reply||'I could not form a reply.');chatHistory.push({role:'user',content:message},{role:'assistant',content:reply});chatHistory=chatHistory.slice(-8);return reply}
  const q=message.toLowerCase();
  const normalized=q.replace(/[.,!?;:]+/g,' ').replace(/\s+/g,' ').trim();
  if(/^(hi|hey|hello|hello jarvis|hey jarvis)(\s+(hi|hey|hello))*$/.test(normalized))return 'Hello! I am JARVIS. The public demo is ready, and I can manage your sample tasks, notes, and reminders. Open-ended AI conversation is not enabled until the backend is connected.';
