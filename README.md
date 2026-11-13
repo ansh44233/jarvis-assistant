@@ -2,212 +2,365 @@
 
 # J.A.R.V.I.S.
 
-### A personal AI assistant built with Python.
+### A private, local-first AI productivity assistant for your desktop.
 
-**I’m Ansh, and I built J.A.R.V.I.S. to bring everyday productivity tools and an AI-powered conversation interface into one focused workspace.**
+J.A.R.V.I.S. is a Python desktop productivity assistant that brings notes, tasks, reminders, daily briefs, a browser-based command center, voice interaction, and optional local AI chat into one private workspace. It uses SQLite for local persistence and Ollama for optional on-device language-model conversations.
 
 <p>
-  <a href="https://github.com/ansh44233/jarvis-assistant">Source code</a>
+  <a href="https://ansh44233.github.io/jarvis-assistant/"><strong>▶ Try the interactive demo</strong></a>
   &nbsp;·&nbsp;
-  <a href="#quick-start">Get started</a>
+  <a href="https://github.com/ansh44233/jarvis-assistant">View source</a>
   &nbsp;·&nbsp;
-  <a href="#features">Features</a>
+  <a href="#-quick-start">Get started</a>
 </p>
 
 <p>
   <a href="https://github.com/ansh44233/jarvis-assistant/actions/workflows/ci.yml"><img src="https://github.com/ansh44233/jarvis-assistant/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/ansh44233/jarvis-assistant/actions/workflows/pages.yml"><img src="https://github.com/ansh44233/jarvis-assistant/actions/workflows/pages.yml/badge.svg" alt="GitHub Pages deployment"></a>
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+">
-  <img src="https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite&logoColor=white" alt="SQLite">
-  <img src="https://img.shields.io/badge/AI-Ollama%20(local)-6B48FF" alt="Ollama">
+  <img src="https://img.shields.io/badge/Core%20dependencies-None-16a34a" alt="No core dependencies">
+  <img src="https://img.shields.io/badge/Storage-SQLite-003B57?logo=sqlite&logoColor=white" alt="SQLite">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-64748b" alt="MIT License"></a>
+  <a href="https://github.com/ansh44233/jarvis-assistant/stargazers"><img src="https://img.shields.io/github/stars/ansh44233/jarvis-assistant?style=social" alt="GitHub stars"></a>
 </p>
 
 </div>
 
 ---
 
-## About the project
+## ✨ What is J.A.R.V.I.S.?
 
-J.A.R.V.I.S. is a local-first productivity assistant that I designed and developed as a hands-on Python project. It combines a terminal interface, a browser-based dashboard, structured personal data, and optional local language-model conversations.
+J.A.R.V.I.S. is a lightweight personal productivity assistant built around one principle: **your everyday workspace should stay useful, understandable, and under your control.**
 
-The goal was to build more than a basic chatbot: I wanted one application where I could capture information, manage everyday work, review what needs attention, and talk to a locally running AI model without making a hosted AI service mandatory.
+It combines a command-line interface with a browser dashboard. Save notes, organize tasks, schedule reminders, review a daily brief, and optionally chat with a model running locally through [Ollama](https://ollama.com/).
 
-## Features
+The core application uses Python's standard library and SQLite. No hosted AI account is required for its core productivity features.
 
-| Area | What I implemented |
+> **Try before installing:** [Open the interactive browser demo](https://ansh44233.github.io/jarvis-assistant/). It runs with sample data in your browser and does not connect to your personal JARVIS database.
+
+## 🚀 Highlights
+
+| Feature | What it offers |
 |---|---|
-| **AI conversation** | Natural-language chat through an optional Ollama model running locally |
-| **Command routing** | Plain-language messages and dedicated productivity commands |
-| **Notes** | Create, list, search, and delete notes |
-| **Tasks** | Add tasks, set due dates, list open work, and mark tasks complete |
-| **Reminders** | One-time, daily, and weekly reminders with date/time parsing |
-| **Daily brief** | A summary of due work, reminders, and open tasks |
-| **Browser dashboard** | Responsive dark interface with conversation, quick actions, and workspace counters |
-| **Voice interface** | Browser speech recognition and spoken replies where supported |
-| **Local storage** | SQLite persistence for notes, tasks, reminders, and recent chat history |
-| **Data export** | Export workspace data as JSON |
-| **Automated tests** | Unit tests and a multi-version Python CI workflow |
+| 📝 Notes | Save, list, search, and delete notes |
+| ✅ Tasks | Create tasks, add due dates, list open work, and mark tasks complete |
+| ⏰ Reminders | Schedule one-time, daily, and weekly reminders |
+| ☀️ Daily brief | Review overdue and upcoming work at a glance |
+| 🖥️ Browser dashboard | Responsive dark dashboard with quick actions and workspace counters |
+| 🤖 Optional local AI | Chat through an Ollama model running on your machine |
+| 🎙️ Browser voice input | Speech recognition where supported by the browser |
+| 🔊 Spoken replies | Optional browser speech synthesis |
+| 💾 Local persistence | Store notes, tasks, reminders, and recent chat history in SQLite |
+| 📦 JSON export | Export your workspace to a portable JSON file |
+| 🧪 Automated tests | Run the test suite locally and through GitHub Actions |
 
-## Tech stack
+### Why local-first?
 
-- **Python 3.10+** — application logic and CLI
-- **SQLite** — local structured storage
-- **HTML, CSS, JavaScript** — browser dashboard
-- **Ollama** — optional local AI inference through its HTTP API
-- **GitHub Actions** — automated testing and repository workflows
+- **Your data stays yours:** the database is stored on your device.
+- **No mandatory AI service:** AI chat is optional; the core organizer works without it.
+- **Small runtime footprint:** no third-party Python runtime dependencies for core features.
+- **Understandable code:** a compact Python codebase with separate modules for routing, storage, date parsing, AI, and the dashboard.
 
-## Quick start
+## 🧭 Live demo
+
+**[Launch the J.A.R.V.I.S. interactive demo →](https://ansh44233.github.io/jarvis-assistant/)**
+
+The public demo is intentionally separate from the real application. It uses temporary sample data and simulates notes, tasks, reminders, and the daily brief entirely in the browser. It does not access a user's local database, connect to Ollama, or send commands to a hosted Python server.
+
+To try it, enter `help`, then test commands such as:
+
+```text
+note Explore Python automation
+task Finish portfolio tomorrow
+remind me to take a break in 30 minutes
+brief
+notes
+tasks
+```
+
+The full Python dashboard is different: it runs on your own machine at `http://127.0.0.1:8765`.
+
+## 🧰 Tech stack
+
+- **Language:** Python 3.10+
+- **Persistence:** SQLite
+- **Web interface:** HTML, CSS, vanilla JavaScript, Python standard-library HTTP server
+- **Optional AI:** Ollama local HTTP API
+- **Automation:** GitHub Actions
+- **Public demo hosting:** GitHub Pages
+
+## ⚡ Quick start
 
 ### Requirements
 
-- Python 3.10 or newer
+- Python **3.10 or newer**
 - Git
-- Ollama only if you want AI conversation
+- Ollama only if you want optional local AI chat
 
-### 1. Clone the repository
+### 1. Clone the project
 
 ```bash
 git clone https://github.com/ansh44233/jarvis-assistant.git
 cd jarvis-assistant
 ```
 
-### 2. Create and activate a virtual environment
+### 2. Create a virtual environment
 
-**Windows PowerShell**
+**Windows (PowerShell):**
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
-**macOS / Linux**
+**macOS / Linux:**
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-### 3. Install the project
+### 3. Install
 
 ```bash
 python -m pip install --upgrade pip
 python -m pip install -e .
 ```
 
-The core application uses Python's standard library; Ollama is an optional separate application for AI chat.
+The core application has no third-party runtime dependencies.
 
 ### 4. Run J.A.R.V.I.S.
 
-Start the terminal assistant:
+Start the interactive terminal assistant:
 
 ```bash
 jarvis
 ```
 
-Start the browser dashboard:
+Run a single command:
+
+```bash
+jarvis "note Explore Python automation"
+jarvis tasks
+```
+
+Launch the browser dashboard:
 
 ```bash
 jarvis --web
 ```
 
-Then open `http://127.0.0.1:8765`.
+Then open **http://127.0.0.1:8765** in your browser.
 
-## AI setup
+## 🖥️ Browser dashboard
 
-J.A.R.V.I.S. can use a model hosted by your own Ollama installation. This keeps inference on your machine and avoids making a remote AI account a requirement for the productivity features.
+The built-in dashboard provides:
 
-1. Install and start [Ollama](https://ollama.com/).
-2. Download a model supported by your computer. The default configured model is `qwen2.5:3b`.
-3. Start J.A.R.V.I.S. and send a normal message or use the `chat` command.
+- A command console for interacting with J.A.R.V.I.S.
+- Workspace counters for notes, open tasks, reminders, and chat history
+- Quick actions for common commands
+- Browser speech input where supported
+- Optional spoken replies using browser speech synthesis
 
-For example:
+The dashboard is served by the local Python application. By default, it binds to `127.0.0.1`, so it is reachable only from your own computer.
+
+## 🤖 Optional local AI with Ollama
+
+AI chat is optional. J.A.R.V.I.S. can send prompts to an Ollama server that you run and configure locally.
+
+1. Install [Ollama](https://ollama.com/).
+2. Start Ollama and download a model that your computer can run.
+3. For example, pull `qwen2.5:3b`.
+4. Start J.A.R.V.I.S. and enter a command such as:
 
 ```text
-Hi JARVIS, how are you?
 chat Explain recursion with a simple example
 ```
 
-If Ollama is not running, the notes, tasks, reminders, daily brief, and export features remain available. AI chat itself needs the local model.
+If Ollama is unavailable, notes, tasks, reminders, the daily brief, export, and the browser dashboard remain usable.
 
-## Command reference
+## ⌨️ Command reference
 
-| Command | Purpose | Example |
+| Command | Description | Example |
 |---|---|---|
 | `note <text>` | Save a note | `note Read about Python decorators` |
-| `notes` | List notes | `notes` |
+| `notes` | List saved notes | `notes` |
 | `find <word>` | Search notes | `find Python` |
-| `task <text> [when]` | Add a task | `task Finish assignment tomorrow` |
+| `task <text> [when]` | Create a task with an optional due date | `task Finish assignment tomorrow` |
 | `tasks` | List open tasks | `tasks` |
-| `done <id>` | Complete a task | `done 2` |
+| `done <id>` | Mark a task complete | `done 2` |
 | `remind me <text> <when>` | Create a reminder | `remind me to stretch in 30 minutes` |
-| `reminders` | List reminders | `reminders` |
-| `brief` | Show today's brief | `brief` |
+| `reminders` | List pending reminders | `reminders` |
+| `brief` | Show your daily brief | `brief` |
 | `chat <message>` | Ask the local AI model | `chat Summarize this idea` |
 | `delete note <id>` | Delete a note | `delete note 1` |
 | `delete task <id>` | Delete a task | `delete task 2` |
 | `delete reminder <id>` | Delete a reminder | `delete reminder 3` |
-| `help` | Show available commands | `help` |
+| `help` | Show command help | `help` |
+| `quit` | Exit interactive mode | `quit` |
 
-Date parsing supports relative dates, weekdays, explicit dates, clock times, relative durations, and daily or weekly repeats.
+Commands are handled by J.A.R.V.I.S.'s intent router. It does not execute arbitrary shell commands from chat.
 
-## How it is structured
+## 📅 Dates and recurring reminders
+
+The date parser supports relative days, weekdays, explicit dates, 12/24-hour times, relative durations, and daily or weekly repeats.
+
+```text
+task Submit the project tomorrow
+task Prepare presentation friday at 6pm
+remind me to take a break in 45 minutes
+remind me to review my notes every day at 9pm
+remind me to call home every sunday at 8pm
+```
+
+Date-only reminders are scheduled for **9:00 AM**. Invalid calendar dates and out-of-range clock times are rejected.
+
+## ⚙️ Configuration
+
+| Environment variable | Default | Purpose |
+|---|---|---|
+| `JARVIS_DB` | `~/.jarvis/jarvis.db` | SQLite database path |
+| `JARVIS_NAME` | `boss` | Name shown in the daily brief |
+| `JARVIS_OLLAMA_URL` | `http://127.0.0.1:11434` | Ollama server endpoint |
+| `JARVIS_MODEL` | `qwen2.5:3b` | Model used for AI chat |
+
+You can also choose a database path with the CLI's `--db` option.
+
+## 🏗️ Architecture
+
+The application keeps its main responsibilities separated:
 
 ```mermaid
 flowchart TD
-    U[User] --> CLI[Terminal interface]
-    U --> UI[Browser dashboard]
-    CLI --> CORE[Assistant router]
-    UI --> CORE
-    CORE --> PARSER[Date and time parser]
-    CORE --> STORE[SQLite store]
-    CORE --> AI[Optional Ollama client]
-    STORE --> DB[(Local database)]
-    AI --> MODEL[Local language model]
+    U[User] --> CLI[Command Line Interface]
+    U --> WEB[Browser Dashboard]
+    CLI --> CORE[Assistant Router]
+    WEB --> CORE
+    CORE --> TIME[Date and Time Parser]
+    CORE --> STORE[SQLite Store]
+    CORE --> AI[Optional Ollama Client]
+    STORE --> DB[(Local SQLite Database)]
+    AI --> MODEL[Local Ollama Model]
 ```
 
 | Module | Responsibility |
 |---|---|
-| `assistant.py` | Routes messages and coordinates features |
-| `cli.py` | Terminal entry point and dashboard launcher |
+| `assistant.py` | Routes commands and coordinates features |
+| `cli.py` | CLI entry point and dashboard launcher |
 | `timeparse.py` | Parses dates, times, and recurring reminders |
-| `store.py` | SQLite persistence and JSON export |
+| `store.py` | SQLite persistence and data export |
 | `ai.py` | Optional Ollama integration |
-| `web.py` | Local dashboard and HTTP endpoints |
+| `web.py` | Local browser dashboard and HTTP endpoints |
 
-## Testing
+### Repository layout
 
-Run the complete test suite:
+```text
+jarvis-assistant/
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       └── pages.yml
+├── demo/
+│   └── index.html
+├── jarvis/
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── ai.py
+│   ├── assistant.py
+│   ├── cli.py
+│   ├── store.py
+│   ├── timeparse.py
+│   └── web.py
+├── tests/
+├── LICENSE
+├── pyproject.toml
+└── README.md
+```
+
+## 🔐 Privacy and security
+
+- Notes, tasks, reminders, and conversation history are stored in a local SQLite database.
+- On POSIX systems, J.A.R.V.I.S. restricts the database file to owner-only read/write permissions when created or opened.
+- Core productivity features do not need an internet connection after installation.
+- Optional AI prompts are sent to the Ollama endpoint you configure.
+- The local dashboard binds to localhost by default and does **not** include authentication.
+- Database files and JSON exports may contain personal information; do not commit them to a public repository.
+
+**Do not expose the local Python dashboard directly to the public internet.** It is designed for personal localhost use, not as a multi-user hosted service. The public GitHub Pages demo is a separate simulation with sample data.
+
+## 🧪 Development and testing
+
+Run the test suite from the repository root:
 
 ```bash
 python -m unittest discover -s tests -t . -v
 ```
 
-Compile the source and tests:
+Compile the application and tests:
 
 ```bash
 python -m compileall -q jarvis tests
 ```
 
-GitHub Actions runs the test suite on Python 3.10, 3.11, 3.12, and 3.13.
+The tests cover command handling, task and reminder behavior, date parsing, SQLite persistence, and the Ollama client. AI client tests use mocked HTTP responses, so Ollama is not required to run the test suite.
 
-## Privacy and current limitations
+GitHub Actions runs the test suite across Python 3.10, 3.11, 3.12, and 3.13.
 
-- Notes, tasks, reminders, and recent conversation history are stored in a local SQLite database.
-- The optional AI client sends prompts to the Ollama endpoint configured on your computer.
-- Browser speech input and output depend on browser support and microphone permissions.
-- The local dashboard binds to `127.0.0.1` by default and does not include authentication. It is intended for personal local use, not direct public exposure.
-- This is a personal portfolio project and has not been security-audited for multi-user production use.
+## 🌐 Hosting the demo
 
-## Star history
+The public demo is a static site in `demo/`. The workflow at `.github/workflows/pages.yml` deploys it to GitHub Pages whenever the demo or workflow changes on `main`.
+
+If Pages has not been enabled for the repository yet:
+
+1. Open **Settings → Pages** in this GitHub repository.
+2. Under **Build and deployment**, choose **GitHub Actions** as the source.
+3. Open the **Actions** tab and run **Deploy public demo to GitHub Pages** (or push a change to `demo/`).
+4. When the deployment workflow succeeds, the demo is available at:
+
+   **https://ansh44233.github.io/jarvis-assistant/**
+
+## ⭐ Star History
+
+If you find the project useful, consider giving it a star. It helps others discover the repository.
 
 [![Star History Chart](https://api.star-history.com/svg?repos=ansh44233/jarvis-assistant&type=Date)](https://star-history.com/#ansh44233/jarvis-assistant&Date)
+
+## ✅ Project status
+
+The current student-project scope is implemented: terminal and browser interfaces, local SQLite persistence, notes, tasks, reminders, daily brief, JSON export, natural-language chat routing through the optional Ollama integration, browser speech input/output where supported, a public interactive demo, and automated tests.
+
+The project is suitable as a portfolio demonstration of Python application design, CLI development, local data persistence, HTTP/API integration, frontend implementation, testing, and GitHub Actions automation.
+
+### Known boundaries
+
+- AI conversations require Ollama to be installed and running locally; the core organizer works without it.
+- Browser speech recognition depends on browser support and microphone permission.
+- The GitHub Pages demo uses sample data and simulates the product; it is not connected to a user's local database or AI model.
+- The local dashboard is intended for localhost use and does not include authentication. Do not expose it directly to the public internet.
+- This is a student portfolio project, not a security-audited or multi-user production service.
+
+Future enhancements can build on this stable, defined feature set; they are not required to use the current application.
+
+## 🤝 Contributing
+
+Contributions, bug reports, and thoughtful suggestions are welcome.
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Make a focused change and add or update tests.
+4. Run `python -m unittest discover -s tests -t .`.
+5. Open a pull request describing the change and how you tested it.
+
+## 📄 License
+
+J.A.R.V.I.S. is released under the [MIT License](LICENSE).
 
 ---
 
 <div align="center">
 
-**Built by Ansh.**
+**Built to keep everyday productivity simple, understandable, and local-first.**
 
-A personal project exploring Python, local AI, voice interfaces, and practical productivity software.
+[Interactive demo](https://ansh44233.github.io/jarvis-assistant/) · [GitHub repository](https://github.com/ansh44233/jarvis-assistant) · [Star history](https://star-history.com/#ansh44233/jarvis-assistant&Date)
 
 </div>
