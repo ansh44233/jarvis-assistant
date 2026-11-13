@@ -24,11 +24,12 @@ export default {
         ...history.filter(x => x && ["user", "assistant"].includes(x.role) && typeof x.content === "string").map(x => ({ role: x.role, content: x.content.slice(0, 1200) })),
         { role: "user", content: message }
       ];
-      const result = await env.AI.run("@cf/meta/llama-3.1-8b-instruct", { messages, max_tokens: 450 });
+      const result = await env.AI.run("@cf/meta/llama-3.1-8b-instruct-fast", { messages, max_tokens: 450 });
       const reply = result?.response?.trim();
       if (!reply) return json({ error: "The AI model returned an empty response." }, 502, cors);
       return json({ reply }, 200, cors);
     } catch (error) {
+      console.error("Workers AI request failed:", error);
       return json({ error: "JARVIS AI is temporarily unavailable. Please try again." }, 502, cors);
     }
   }
