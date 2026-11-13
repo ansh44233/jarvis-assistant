@@ -2,9 +2,9 @@
 
 # J.A.R.V.I.S.
 
-### Your personal command center — private, lightweight, and local-first.
+### A private, local-first AI productivity assistant for your desktop.
 
-A Python productivity assistant for notes, tasks, reminders, and optional local AI conversations. Use it from your terminal or a browser dashboard, with your workspace stored in SQLite on your own machine.
+J.A.R.V.I.S. is a Python desktop productivity assistant that brings notes, tasks, reminders, daily briefs, a browser-based command center, voice interaction, and optional local AI chat into one private workspace. It uses SQLite for local persistence and Ollama for optional on-device language-model conversations.
 
 <p>
   <a href="https://ansh44233.github.io/jarvis-assistant/"><strong>▶ Try the interactive demo</strong></a>
@@ -325,16 +325,21 @@ If you find the project useful, consider giving it a star. It helps others disco
 
 [![Star History Chart](https://api.star-history.com/svg?repos=ansh44233/jarvis-assistant&type=Date)](https://star-history.com/#ansh44233/jarvis-assistant&Date)
 
-## 🗺️ Roadmap
+## ✅ Project status
 
-- [ ] More flexible natural-language command parsing.
-- [ ] Richer dashboard views and task organization.
-- [ ] Additional export and backup options.
-- [ ] More configurable assistant preferences.
-- [ ] Expanded end-to-end and dashboard test coverage.
-- [ ] Optional authenticated remote access, designed separately from the local-first core.
+The current student-project scope is implemented: terminal and browser interfaces, local SQLite persistence, notes, tasks, reminders, daily brief, JSON export, natural-language chat routing through the optional Ollama integration, browser speech input/output where supported, a public interactive demo, and automated tests.
 
-These are future ideas, not claims about current functionality.
+The project is suitable as a portfolio demonstration of Python application design, CLI development, local data persistence, HTTP/API integration, frontend implementation, testing, and GitHub Actions automation.
+
+### Known boundaries
+
+- AI conversations require Ollama to be installed and running locally; the core organizer works without it.
+- Browser speech recognition depends on browser support and microphone permission.
+- The GitHub Pages demo uses sample data and simulates the product; it is not connected to a user's local database or AI model.
+- The local dashboard is intended for localhost use and does not include authentication. Do not expose it directly to the public internet.
+- This is a student portfolio project, not a security-audited or multi-user production service.
+
+Future enhancements can build on this stable, defined feature set; they are not required to use the current application.
 
 ## 🤝 Contributing
 
