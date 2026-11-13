@@ -2,6 +2,9 @@ export default {
   async fetch(request, env) {
     const allowedOrigin = "https://ansh44233.github.io";
     const origin = request.headers.get("Origin") || "";
+    if (request.method === "GET" && new URL(request.url).pathname === "/health") {
+      return json({ status: "ok", service: "jarvis-ai-worker" }, 200, { "Cache-Control": "no-store" });
+    }
     const cors = {
       "Access-Control-Allow-Origin": allowedOrigin,
       "Access-Control-Allow-Methods": "POST, OPTIONS",
