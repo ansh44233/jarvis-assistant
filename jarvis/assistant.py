@@ -51,7 +51,11 @@ class Assistant:
             match = pattern.match(text)
             if match:
                 return handler(match)
-        return "I didn't catch that. Type 'help' to see what I can do."
+        # Unknown text is treated as a natural-language chat turn.
+        conversational = re.match(r"^(.+)$", text, re.S)
+        if conversational:
+            return self.chat(conversational)
+        return "I couldn't understand that. Try asking in a different way."
 
     def alerts(self) -> list[str]:
         """Reminders that have come due since the last call."""
