@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 from datetime import datetime, timedelta
 from jarvis.assistant import Assistant
 from jarvis.store import Store
@@ -39,7 +40,11 @@ class AssistantTests(unittest.TestCase):
     def test_delete_and_unknown(self):
         self.jarvis.handle("note temp"); self.assertEqual(self.jarvis.handle("delete note 1"),"Deleted note #1.")
         self.assertEqual(self.jarvis.handle("delete note 1"),"No note #1.")
-        self.assertIn("didn't catch",self.jarvis.handle("sing a song"))
+        self.assertIn("Local AI is unavailable",self.jarvis.handle("sing a song"))
+    @patch("jarvis.assistant.ai_chat", return_value="Hello! I am JARVIS.")
+    def test_plain_language_routes_to_ai_chat(self, mock_chat):
+        self.assertEqual(self.jarvis.handle("Hey JARVIS, how are you?"), "Hello! I am JARVIS.")
+        mock_chat.assert_called_once()
     def test_brief_lists_overdue_work(self):
         self.jarvis.handle("task submit lab today"); text=self.jarvis.handle("brief")
         self.assertIn("Good evening, Ansh.",text); self.assertIn("submit lab",text); self.assertIn("1 open task.",text)
