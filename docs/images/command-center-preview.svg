@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#171717"/><stop offset=".55" stop-color="#080808"/><stop offset="1" stop-color="#111"/></linearGradient>
+ <linearGradient id="panel" x2="1" y2="1"><stop stop-color="#202020"/><stop offset="1" stop-color="#101010"/></linearGradient>
+ <radialGradient id="orb"><stop stop-color="#fff"/><stop offset=".12" stop-color="#bbb"/><stop offset=".42" stop-color="#454545"/><stop offset="1" stop-color="#090909"/></radialGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1440" height="900" fill="url(#bg)"/>
+<rect width="250" height="900" fill="#0b0b0b" stroke="#303030"/>
+<circle cx="48" cy="55" r="21" fill="#151515" stroke="#bbb"/><text x="48" y="62" fill="#eee" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold">J</text>
+<text x="82" y="53" fill="#f4f4f4" font-family="Arial" font-size="16" font-weight="bold" letter-spacing="3">J.A.R.V.I.S.</text><text x="82" y="70" fill="#888" font-family="Arial" font-size="9" letter-spacing="2">NEURAL INTERFACE</text>
+<text x="28" y="132" fill="#777" font-family="Arial" font-size="10" letter-spacing="2">WORKSPACE</text>
+<g font-family="Arial" font-size="14" fill="#bbb">
+ <rect x="14" y="148" width="220" height="43" rx="9" fill="#202020" stroke="#454545"/><text x="34" y="175" fill="#fff">⌂  Overview</text>
+ <text x="34" y="226">◉  Assistant</text><text x="34" y="276">✓  Tasks</text><text x="34" y="326">▤  Notes</text><text x="34" y="376">◷  Reminders</text>
+</g>
+<text x="28" y="438" fill="#777" font-family="Arial" font-size="10" letter-spacing="2">SYSTEM</text>
+<g font-family="Arial" font-size="14" fill="#bbb"><text x="34" y="476">⌁  Activity</text><text x="34" y="526">⚙  Settings</text></g>
+<rect x="16" y="810" width="218" height="68" rx="12" fill="#171717" stroke="#333"/><circle cx="34" cy="834" r="4" fill="#ddd"/><text x="47" y="838" fill="#eee" font-family="Arial" font-size="11" font-weight="bold">DEMO WORKSPACE READY</text><text x="29" y="860" fill="#888" font-family="Arial" font-size="10">Demo sandbox · sample workspace</text>
+<text x="290" y="48" fill="#888" font-family="Arial" font-size="11" letter-spacing="2">JARVIS / OVERVIEW</text>
+<rect x="1130" y="25" width="180" height="30" rx="15" fill="#181818" stroke="#444"/><circle cx="1148" cy="40" r="4" fill="#ddd"/><text x="1160" y="44" fill="#ddd" font-family="Arial" font-size="10">DEMO MODE · AI OFFLINE</text><text x="1340" y="44" fill="#999" font-family="monospace" font-size="12">12:45:08</text>
+<text x="290" y="112" fill="#ddd" font-family="Arial" font-size="11" font-weight="bold" letter-spacing="3">PERSONAL INTELLIGENCE SYSTEM</text>
+<text x="290" y="171" fill="#f5f5f5" font-family="Arial" font-size="48" font-weight="bold">Good day.</text><text x="290" y="222" fill="#ccc" font-family="Arial" font-size="48" font-weight="bold">At your command.</text>
+<text x="290" y="260" fill="#999" font-family="Arial" font-size="15">Your personal command center is ready. Organize your thoughts,</text><text x="290" y="283" fill="#999" font-family="Arial" font-size="15">focus on priorities, and let JARVIS keep your day in formation.</text>
+<ellipse cx="1112" cy="204" rx="120" ry="43" fill="#aaa" opacity=".08" filter="url(#glow)"/>
+<ellipse cx="1112" cy="204" rx="118" ry="42" fill="none" stroke="#777" opacity=".5" transform="rotate(-16 1112 204)"/>
+<ellipse cx="1112" cy="204" rx="140" ry="50" fill="none" stroke="#666" opacity=".35" transform="rotate(18 1112 204)"/>
+<circle cx="1112" cy="194" r="61" fill="url(#orb)" stroke="#aaa" stroke-width="1.5"/><circle cx="1112" cy="194" r="75" fill="none" stroke="#aaa" opacity=".5"/><text x="1112" y="293" fill="#aaa" font-family="Arial" font-size="10" text-anchor="middle" letter-spacing="3">NEURAL CORE · STANDBY</text>
+<rect x="285" y="330" width="680" height="360" rx="16" fill="url(#panel)" stroke="#363636"/>
+<text x="310" y="366" fill="#eee" font-family="Arial" font-size="12" letter-spacing="2">COMMAND CONSOLE</text><text x="740" y="366" fill="#888" font-family="Arial" font-size="10" letter-spacing="1">NATURAL COMMAND INTERFACE</text>
+<rect x="310" y="389" width="630" height="190" rx="10" fill="#090909" stroke="#333"/>
+<text x="330" y="421" fill="#ddd" font-family="monospace" font-size="13">JARVIS demo ready. Try a greeting or a workspace command.</text><text x="330" y="450" fill="#aaa" font-family="monospace" font-size="13">Productivity commands also work:</text><text x="330" y="476" fill="#eee" font-family="monospace" font-size="13">task Finish portfolio tomorrow</text><text x="330" y="502" fill="#eee" font-family="monospace" font-size="13">note Research holographic UI</text><text x="330" y="528" fill="#eee" font-family="monospace" font-size="13">brief</text>
+<rect x="310" y="595" width="455" height="48" rx="9" fill="#0b0b0b" stroke="#444"/><text x="328" y="624" fill="#777" font-family="Arial" font-size="13">Ask JARVIS anything or enter a command…</text><rect x="777" y="595" width="112" height="48" rx="9" fill="#ddd"/><text x="833" y="624" fill="#111" font-family="Arial" font-size="13" font-weight="bold" text-anchor="middle">Execute ↗</text><rect x="899" y="595" width="41" height="48" rx="9" fill="#191919" stroke="#444"/><text x="919" y="625" fill="#ddd" font-family="Arial" font-size="17" text-anchor="middle">🎙</text>
+<g fill="#1a1a1a" stroke="#444"><rect x="310" y="657" width="110" height="25" rx="12"/><rect x="430" y="657" width="110" height="25" rx="12"/><rect x="550" y="657" width="110" height="25" rx="12"/><rect x="670" y="657" width="80" height="25" rx="12"/></g><g fill="#bbb" font-family="Arial" font-size="10" text-anchor="middle"><text x="365" y="674">Daily brief</text><text x="485" y="674">View tasks</text><text x="605" y="674">Open notes</text><text x="710" y="674">Help</text></g>
+<rect x="985" y="330" width="420" height="360" rx="16" fill="url(#panel)" stroke="#363636"/><text x="1010" y="366" fill="#eee" font-family="Arial" font-size="12" letter-spacing="2">WORKSPACE TELEMETRY</text>
+<g><rect x="1010" y="389" width="180" height="91" rx="11" fill="#191919" stroke="#383838"/><rect x="1200" y="389" width="180" height="91" rx="11" fill="#191919" stroke="#383838"/><rect x="1010" y="490" width="180" height="91" rx="11" fill="#191919" stroke="#383838"/><rect x="1200" y="490" width="180" height="91" rx="11" fill="#191919" stroke="#383838"/></g>
+<g font-family="Arial"><text x="1030" y="430" fill="#eee" font-size="30" font-weight="bold">02</text><text x="1030" y="454" fill="#999" font-size="11">Saved notes</text><text x="1220" y="430" fill="#eee" font-size="30" font-weight="bold">02</text><text x="1220" y="454" fill="#999" font-size="11">Open tasks</text><text x="1030" y="531" fill="#eee" font-size="30" font-weight="bold">01</text><text x="1030" y="555" fill="#999" font-size="11">Reminders</text><text x="1220" y="531" fill="#eee" font-size="30" font-weight="bold">00</text><text x="1220" y="555" fill="#999" font-size="11">Cloud dependencies</text></g>
+<text x="1010" y="617" fill="#ddd" font-family="Arial" font-size="11" letter-spacing="2">RECENT ACTIVITY</text><circle cx="1017" cy="646" r="4" fill="#ccc"/><text x="1032" y="650" fill="#aaa" font-family="Arial" font-size="11">Neural interface initialized</text><circle cx="1017" cy="672" r="4" fill="#ccc"/><text x="1032" y="676" fill="#aaa" font-family="Arial" font-size="11">Sample workspace loaded</text>
+<rect x="285" y="710" width="1120" height="150" rx="16" fill="url(#panel)" stroke="#363636"/><text x="310" y="745" fill="#eee" font-family="Arial" font-size="12" letter-spacing="2">CORE CAPABILITIES</text>
+<g><rect x="310" y="766" width="340" height="72" rx="11" fill="#151515" stroke="#333"/><rect x="670" y="766" width="340" height="72" rx="11" fill="#151515" stroke="#333"/><rect x="1030" y="766" width="350" height="72" rx="11" fill="#151515" stroke="#333"/></g>
+<g font-family="Arial"><text x="330" y="795" fill="#ddd" font-size="14">◈  Intelligent command center</text><text x="330" y="818" fill="#888" font-size="11">Quick commands and daily actions</text><text x="690" y="795" fill="#ddd" font-size="14">▤  Personal knowledge</text><text x="690" y="818" fill="#888" font-size="11">Capture ideas and find them later</text><text x="1050" y="795" fill="#ddd" font-size="14">⌁  Focus and follow-through</text><text x="1050" y="818" fill="#888" font-size="11">Keep tasks and reminders visible</text></g>
+</svg>
