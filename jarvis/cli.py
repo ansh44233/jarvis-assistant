@@ -51,10 +51,10 @@ def main(argv: list[str] | None = None) -> int:
 
 def repl(jarvis: Assistant) -> int:
     print(jarvis.handle("brief"))
-    print("Type 'help' for commands.\\n")
+    print("Type 'help' for commands.\n")
     while True:
         for line in jarvis.alerts():
-            print(f"\\a>> {line}")
+            print(f"\a>> {line}")
         try:
             text = input("jarvis> ")
         except (EOFError, KeyboardInterrupt):
