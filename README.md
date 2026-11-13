@@ -30,6 +30,22 @@ The goal is simple: make it easier to capture ideas, organise responsibilities, 
 
 > **Important:** J.A.R.V.I.S. is currently a productivity assistant and interactive demo — it is not yet a full Windows PC-control agent. Features such as launching desktop applications and controlling the operating system are future roadmap items, not current capabilities.
 
+## 🖥️ Screenshots and interface previews
+
+The visuals below are **illustrative previews based on the current demo interface**, not direct screenshots of a running session. They help show the layout and the main areas of the experience.
+
+### Command Center
+
+![J.A.R.V.I.S. command center preview](docs/images/command-center-preview.svg)
+
+### Productivity workspace
+
+![J.A.R.V.I.S. workspace preview](docs/images/workspace-preview.svg)
+
+[Open the live demo](https://ansh44233.github.io/jarvis-assistant/) to explore the actual interactive interface.
+
+---
+
 ## 🚀 Try the live demo
 
 <div align="center">
