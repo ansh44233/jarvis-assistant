@@ -1,6 +1,11 @@
 name: Deploy JARVIS AI Worker
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'worker/**'
+      - '.github/workflows/worker.yml'
   workflow_dispatch:
 
 jobs:
