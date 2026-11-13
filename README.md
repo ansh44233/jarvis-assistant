@@ -110,6 +110,8 @@ To use AI chat, install [Ollama](https://ollama.com/), start it, and download a 
 
 AI is optional. Notes, tasks, reminders, and the dashboard work without it.
 
+For the optional AI-powered public demo, see the [Cloudflare Worker setup guide](worker/README.md). The public demo uses sample workspace data and is separate from the local Ollama setup.
+
 ## Project structure
 
 ```text
