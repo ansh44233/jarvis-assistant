@@ -196,7 +196,6 @@ GitHub Actions runs the test suite on Python 3.10, 3.11, 3.12, and 3.13.
 - The optional AI client sends prompts to the Ollama endpoint configured on your computer.
 - Browser speech input and output depend on browser support and microphone permissions.
 - The local dashboard binds to `127.0.0.1` by default and does not include authentication. It is intended for personal local use, not direct public exposure.
-- The public browser demo is separate from the Python application; it does not access your local database or computer.
 - This is a personal portfolio project and has not been security-audited for multi-user production use.
 
 ## Star history
