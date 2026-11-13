@@ -200,12 +200,7 @@ GitHub Actions runs the test suite on Python 3.10, 3.11, 3.12, and 3.13.
 
 ## Star history
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/star-history-dark.svg">
-  <img src="assets/star-history.svg" alt="J.A.R.V.I.S. GitHub star history" width="700">
-</picture>
-
-The chart is generated in this repository's own GitHub Actions workflow and refreshed weekly.
+[![Star History Chart](https://api.star-history.com/svg?repos=ansh44233/jarvis-assistant&type=Date)](https://star-history.com/#ansh44233/jarvis-assistant&Date)
 
 ---
 
