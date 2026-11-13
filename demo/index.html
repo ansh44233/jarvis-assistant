@@ -83,7 +83,7 @@ body{background:radial-gradient(ellipse at 68% -15%,#ffffff12,transparent 42%),r
 </main></div>
 <script>
 const $=s=>document.querySelector(s),log=$('#log');
-const API_URL='https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev';
+const API_URL='https://jarvis-assistant-api.anshbtech97.workers.dev';
 const STORE_KEY='jarvis-demo-v2';
 function freshState(){return {notes:['Project idea: build a private assistant','Explore Python automation'],tasks:[{title:'Review my portfolio',when:'Tomorrow',done:false},{title:'Read about SQLite',when:'',done:false}],reminders:[{title:'Take a short break',when:'In 30 minutes'}],activity:['Neural interface initialized','Sample workspace loaded']}}
 function loadState(){try{const saved=JSON.parse(localStorage.getItem(STORE_KEY));if(saved&&Array.isArray(saved.notes)&&Array.isArray(saved.tasks)&&Array.isArray(saved.reminders))return {...freshState(),...saved}}catch(e){}return freshState()}
