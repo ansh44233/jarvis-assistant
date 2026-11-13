@@ -1,0 +1,6 @@
+name = "jarvis-assistant-api"
+main = "index.js"
+compatibility_date = "2026-11-14"
+
+[ai]
+binding = "AI"
