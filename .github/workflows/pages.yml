@@ -27,6 +27,20 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Configure optional AI endpoint
+        env:
+          JARVIS_API_URL: ${{ vars.JARVIS_API_URL }}
+        run: |
+          if [ -n "$JARVIS_API_URL" ]; then
+            python - <<'PY'
+          import os
+          from pathlib import Path
+          path = Path("demo/index.html")
+          html = path.read_text()
+          html = html.replace("https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev", os.environ["JARVIS_API_URL"].rstrip("/"))
+          path.write_text(html)
+          PY
+          fi
       - name: Upload demo artifact
         uses: actions/upload-pages-artifact@v3
         with:
