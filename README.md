@@ -2,69 +2,134 @@
 
 # J.A.R.V.I.S.
 
-### Your personal command center.
+### A personal AI-powered productivity assistant — built to grow.
 
-A local-first productivity assistant built with Python. Organize notes, tasks and reminders, get a daily brief, and chat with an optional local AI model.
+**One workspace for notes, tasks, reminders, daily planning and AI-powered conversation.**
 
-[**🚀 Launch Live Demo**](https://ansh44233.github.io/jarvis-assistant/) · [**Browse Source**](https://github.com/ansh44233/jarvis-assistant) · [**Report an Issue**](https://github.com/ansh44233/jarvis-assistant/issues)
+[**Launch Live Demo**](https://ansh44233.github.io/jarvis-assistant/) · [**Explore the Code**](https://github.com/ansh44233/jarvis-assistant) · [**Report a Bug**](https://github.com/ansh44233/jarvis-assistant/issues)
+
+<br/>
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![SQLite](https://img.shields.io/badge/Storage-SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Beta-f59e0b?style=for-the-badge)
+![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![AI](https://img.shields.io/badge/AI-Ollama%20%7C%20Cloudflare-7C3AED?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-16A34A?style=for-the-badge)
+![Status](https://img.shields.io/badge/Project%20Status-Beta-F59E0B?style=for-the-badge)
 
 </div>
 
 ---
 
-## ✦ About
+## ✨ What is J.A.R.V.I.S.?
 
-J.A.R.V.I.S. brings everyday productivity into one focused workspace. Use the terminal or browser dashboard to capture ideas, track tasks, manage reminders and review what's next.
+J.A.R.V.I.S. is a local-first personal productivity assistant designed to bring everyday organisation and AI interaction into one place.
 
-The core app runs on your computer and stores its data in SQLite. Optional AI chat can connect to [Ollama](https://ollama.com/) for local model inference.
+The project currently combines a Python application, a browser-based dashboard, persistent local storage, and optional AI chat. It is being developed as a foundation for a more capable personal desktop assistant over time.
 
-> **Two experiences, clearly separated:** the public website is an interactive demo with sample data. The Python app is the local application that stores your own workspace on your computer.
+The goal is simple: make it easier to capture ideas, organise responsibilities, stay on top of reminders, and interact with an assistant through a clean interface.
 
-## ✦ Live demo
+> **Important:** J.A.R.V.I.S. is currently a productivity assistant and interactive demo — it is not yet a full Windows PC-control agent. Features such as launching desktop applications and controlling the operating system are future roadmap items, not current capabilities.
+
+## 🚀 Try the live demo
 
 <div align="center">
 
-### [Open J.A.R.V.I.S. Command Center →](https://ansh44233.github.io/jarvis-assistant/)
+### [Open the J.A.R.V.I.S. Command Center →](https://ansh44233.github.io/jarvis-assistant/)
+
+Explore the browser experience without installing anything.
 
 </div>
 
-The public demo runs in your browser and requires no installation. Its notes, tasks and reminders are sample workspace data saved in browser storage. Optional AI chat uses a separate Cloudflare Worker backend. The hosted demo cannot access your computer, files, local SQLite database or local Ollama instance. Microphone features depend on browser support and permission.
+The hosted demo is a separate web experience:
+- Notes, tasks and reminders use sample workspace data stored in your browser.
+- AI chat is handled by a separate Cloudflare Workers AI backend.
+- Voice input and spoken replies depend on browser support and microphone permissions.
+- The hosted website cannot access your computer, local files, local SQLite database, installed applications, or local Ollama instance.
 
-## ✦ Features
+For your own persistent local workspace, install and run the Python application using the instructions below.
 
-| Feature | Description |
+## ✅ What works today
+
+| Capability | Current implementation |
 |---|---|
-| **Notes** | Create, list, search and delete notes |
-| **Tasks** | Add tasks, set due dates and mark work complete |
-| **Reminders** | Create one-time and recurring reminders |
-| **Daily brief** | Review upcoming and overdue work |
-| **Browser dashboard** | Manage your workspace in a browser |
-| **Terminal interface** | Use quick commands from your shell |
-| **Optional AI chat** | Connect a local Ollama model |
-| **Voice interaction** | Voice input and spoken replies in supported browsers |
-| **Local persistence** | SQLite storage and JSON export |
+| Notes | Create, list, search and delete notes |
+| Tasks | Create tasks, set due dates and mark tasks complete |
+| Reminders | Create and review one-time and recurring reminders |
+| Daily brief | Review upcoming and overdue work |
+| Terminal assistant | Run commands from your local shell |
+| Local dashboard | Open the Python app's browser dashboard |
+| Local data storage | Store personal workspace data in SQLite |
+| Optional local AI | Chat through an Ollama model |
+| Public AI demo | Browser-based chat through Cloudflare Workers AI |
+| Demo voice experience | Voice input and spoken replies in supported browsers |
+| Data export | Export workspace data as JSON |
 
-## ✦ Quick start
+The local productivity features do not require an AI model. AI chat is an optional layer.
+
+## 🧭 Two ways to use J.A.R.V.I.S.
+
+### 1. Local Python application
+
+Run J.A.R.V.I.S. on your own computer. The local application provides the terminal interface, browser dashboard, productivity commands and SQLite-backed storage. Optional AI chat can use an Ollama model running on your machine.
+
+### 2. Hosted browser demo
+
+Open the GitHub Pages website to explore the interface and sample workflows. Its demo data and AI backend are separate from the local Python application.
+
+These experiences are related parts of the same project, but they do not currently share a live connection. Using the hosted demo does not give it control over your PC.
+
+## 🛠️ Technology stack
+
+| Technology | How it is used |
+|---|---|
+| **Python 3.10+** | Core application and command-line interface |
+| **SQLite** | Local structured data storage |
+| **HTML, CSS and JavaScript** | Browser dashboard and hosted demo |
+| **Ollama** | Optional local language-model integration |
+| **Cloudflare Workers AI** | AI chat backend for the public demo |
+| **GitHub Pages** | Hosting the public demo |
+| **GitHub Actions** | Automated checks and deployment workflows |
+
+The core Python application is designed to run with the Python standard library; Ollama is optional for local AI chat.
+
+## 🧩 How the project is organised
+
+The repository is split into focused parts so that the local application, hosted demo, AI backend and tests can evolve independently.
+
+```text
+jarvis-assistant/
+├── demo/                  # Public browser demo
+├── jarvis/                # Local Python application
+│   ├── ai.py              # Optional AI integration
+│   ├── assistant.py       # Assistant and productivity logic
+│   ├── cli.py             # Terminal commands
+│   ├── store.py           # SQLite persistence
+│   ├── timeparse.py       # Date and time parsing
+│   └── web.py             # Local browser dashboard
+├── worker/                # Cloudflare AI backend for the demo
+├── tests/                 # Automated tests
+├── .github/workflows/     # CI and deployment automation
+├── LICENSE
+├── README.md
+└── pyproject.toml
+```
+
+## ⚡ Get started
 
 ### Requirements
 
-- Python 3.10+
+- Python 3.10 or newer
 - Windows, macOS or Linux
-- Ollama only if you want local AI chat
+- Ollama only if you want optional local AI chat
 
-### 1. Clone
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/ansh44233/jarvis-assistant.git
 cd jarvis-assistant
 ```
 
-### 2. Create a virtual environment
+### 2. Create and activate a virtual environment
 
 **Windows PowerShell**
 
@@ -80,48 +145,48 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-### 3. Install
+### 3. Install J.A.R.V.I.S.
 
 ```bash
 python -m pip install -e .
 ```
 
-### 4. Run
+### 4. Start the assistant
 
-Start the terminal assistant:
+Run the terminal interface:
 
 ```bash
 jarvis
 ```
 
-Start the browser dashboard instead:
+Or start the local browser dashboard:
 
 ```bash
 jarvis --web
 ```
 
-Then open **http://127.0.0.1:8765**.
+Then visit **http://127.0.0.1:8765** in your browser.
 
-## ✦ Command guide
+## 💬 Command reference
 
-| Command | What it does |
+| Command | Description |
 |---|---|
 | `note <text>` | Save a note |
-| `notes` | List notes |
+| `notes` | List saved notes |
 | `find <word>` | Search notes |
 | `task <text> [when]` | Create a task |
 | `tasks` | List tasks |
-| `done <id>` | Complete a task |
+| `done <id>` | Mark a task complete |
 | `remind me <text> <when>` | Create a reminder |
 | `reminders` | List reminders |
-| `brief` | Show the daily brief |
-| `chat <message>` | Chat with the local AI model |
+| `brief` | Display the daily brief |
+| `chat <message>` | Chat with the configured local AI model |
 | `delete note <id>` | Delete a note |
 | `delete task <id>` | Delete a task |
 | `delete reminder <id>` | Delete a reminder |
-| `help` | Show all commands |
+| `help` | Show available commands |
 
-Example:
+Example session:
 
 ```text
 note Explore Python automation
@@ -130,9 +195,9 @@ remind me to take a break in 30 minutes
 brief
 ```
 
-## ✦ Optional local AI setup
+## 🧠 Optional local AI with Ollama
 
-AI is optional — notes, tasks, reminders and the dashboard work without it.
+The core productivity features work without AI. To enable local AI chat:
 
 1. Install [Ollama](https://ollama.com/).
 2. Download a model:
@@ -141,79 +206,87 @@ AI is optional — notes, tasks, reminders and the dashboard work without it.
    ollama pull qwen2.5:3b
    ```
 
-3. Start J.A.R.V.I.S. and use `chat <message>`.
+3. Start J.A.R.V.I.S. and use the `chat <message>` command.
 
-For the separate AI backend used by the public demo, see the [Worker setup guide](worker/README.md).
+The model runs through your local Ollama installation. Model performance depends on your hardware and the model you choose.
 
-## ✦ Tech stack
+The hosted demo uses a separate Cloudflare Workers AI backend. See [worker/README.md](worker/README.md) for its configuration and deployment notes.
 
-- **Python** — core assistant and CLI
-- **SQLite** — local database
-- **HTML, CSS, JavaScript** — browser dashboard and public demo
-- **Ollama** — optional local AI
-- **Cloudflare Workers AI** — optional public-demo chat backend
-- **GitHub Actions + Pages** — checks and demo deployment
+## 🗺️ Roadmap — where J.A.R.V.I.S. is going
 
-The core Python app uses the standard library and has no required third-party runtime dependencies.
+J.A.R.V.I.S. is an evolving project. The current release focuses on productivity fundamentals and a working browser demo. The following ideas describe the direction of future development; **they are planned, not implemented or guaranteed features yet.**
 
-## ✦ Project structure
+### Desktop assistant capabilities
+- [ ] Build a secure local Windows agent that can receive approved commands from the assistant.
+- [ ] Launch allowlisted desktop applications such as Edge, Discord and Notepad.
+- [ ] Add configurable application shortcuts and user-approved desktop actions.
+- [ ] Explore safe file and folder search, with clear permission boundaries.
+- [ ] Package the local assistant into a simpler Windows installer.
 
-```text
-jarvis-assistant/
-├── demo/                  # Public browser demo
-├── jarvis/                # Python application
-│   ├── ai.py              # Optional AI integration
-│   ├── assistant.py       # Assistant logic
-│   ├── cli.py             # Terminal commands
-│   ├── store.py            # SQLite persistence
-│   ├── timeparse.py        # Date/time parsing
-│   └── web.py              # Local browser dashboard
-├── worker/                # Public demo AI backend
-├── tests/                 # Automated tests
-├── .github/workflows/     # CI and deployment
-├── LICENSE
-├── README.md
-└── pyproject.toml
-```
+### Voice and interaction
+- [ ] Improve voice input and speech output across supported platforms.
+- [ ] Explore optional wake-word activation.
+- [ ] Add clearer listening, thinking and speaking states.
+- [ ] Improve conversation history and context handling.
 
-## ✦ Tests
+### Productivity and integrations
+- [ ] Add calendar and schedule integrations.
+- [ ] Expand task organisation, priorities, projects and filters.
+- [ ] Add configurable notifications and reminder delivery.
+- [ ] Explore integrations with other everyday productivity tools.
 
-Run the test suite from the project root:
+### Engineering and experience
+- [ ] Expand automated and end-to-end test coverage.
+- [ ] Improve accessibility, responsive layouts and customisation.
+- [ ] Add setup diagnostics, logs and recovery guidance.
+- [ ] Publish clearer architecture documentation and demo walkthroughs.
+
+**The long-term vision:** grow J.A.R.V.I.S. from a useful productivity assistant into a reliable, permission-based personal desktop assistant — one carefully tested capability at a time.
+
+## 🧪 Run the tests
+
+From the repository root:
 
 ```bash
 python -m unittest discover -s tests -t . -v
 ```
 
-## ✦ Privacy & security
+## 🔐 Privacy and security
 
-- Local app data is stored at `~/.jarvis/jarvis.db` by default.
-- Prompts for local AI chat are sent to the Ollama server configured on your computer.
-- Do not expose the local dashboard directly to the public internet without suitable security controls.
-- The public demo is separate and uses sample workspace data in browser storage.
-- The public AI endpoint may consume your Cloudflare Workers AI quota.
-- Never commit API tokens, credentials or other secrets to the repository.
+- The local app stores its database at `~/.jarvis/jarvis.db` by default.
+- Local AI prompts are sent to the Ollama server configured on your computer.
+- The hosted demo uses browser storage for its sample workspace data.
+- The public AI endpoint is separate from your local Python app and may consume your Cloudflare Workers AI quota.
+- Do not expose the local dashboard directly to the public internet without adding appropriate authentication and security controls.
+- Never commit API tokens, credentials or private configuration values to source control.
 
-## ✦ Roadmap
+Future desktop-control features will need explicit permissions, an application allowlist and safe handling of commands. J.A.R.V.I.S. should never silently execute arbitrary instructions from a chat response.
 
-- [ ] More dashboard customisation
-- [ ] Better task filtering and organisation
-- [ ] Expanded voice interaction
-- [ ] More automated tests and accessibility improvements
+## 🤝 Contributing and feedback
 
-Ideas and contributions are welcome — open an [issue](https://github.com/ansh44233/jarvis-assistant/issues).
+Ideas, bug reports and thoughtful contributions are welcome.
 
-## ✦ Star history
+- [Open an issue](https://github.com/ansh44233/jarvis-assistant/issues)
+- [Browse the source code](https://github.com/ansh44233/jarvis-assistant)
 
-If you like the project, consider giving it a ⭐.
+If you are suggesting a feature, please mention the problem it solves and the workflow you would expect.
+
+## ⭐ Support the project
+
+If J.A.R.V.I.S. is useful or interesting to you, consider giving the repository a star.
+
+<div align="center">
 
 [![Star History Chart](https://api.star-history.com/svg?repos=ansh44233/jarvis-assistant&type=Date)](https://star-history.com/#ansh44233/jarvis-assistant&Date)
+
+</div>
 
 ---
 
 <div align="center">
 
-**Built with focus by Ansh.**
+**Built with curiosity and a vision for a smarter personal workspace.**
 
-[Live Demo](https://ansh44233.github.io/jarvis-assistant/) · [GitHub](https://github.com/ansh44233/jarvis-assistant) · [MIT License](LICENSE)
+Created by **Ansh** · [Live Demo](https://ansh44233.github.io/jarvis-assistant/) · [GitHub Repository](https://github.com/ansh44233/jarvis-assistant) · [MIT License](LICENSE)
 
 </div>
