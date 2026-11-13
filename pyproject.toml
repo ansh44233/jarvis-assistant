@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "jarvis-assistant"
 version = "0.2.0"
-description = "Offline personal assistant for notes, tasks and reminders. Zero dependencies."
+description = "Local-first desktop productivity assistant with notes, tasks, reminders, a browser dashboard, and optional Ollama AI chat."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
