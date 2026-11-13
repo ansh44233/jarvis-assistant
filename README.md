@@ -114,6 +114,70 @@ jarvis-assistant/
 └── pyproject.toml
 ```
 
+## 🔄 How J.A.R.V.I.S. works
+
+J.A.R.V.I.S. has two related experiences: the **local Python assistant** and the **hosted web demo**. They use separate data and AI paths, so the workflow depends on which version you open.
+
+### Local assistant workflow
+
+The local app receives a command through the terminal or local dashboard, processes the requested productivity action, and uses SQLite for persistent workspace data. AI chat is an optional path through the Ollama service configured on your computer.
+
+```mermaid
+flowchart TD
+    A["You"] --> B{"Choose an interface"}
+    B --> C["Terminal / CLI"]
+    B --> D["Local browser dashboard"]
+    C --> E["Python assistant"]
+    D --> E
+    E --> F{"What do you want to do?"}
+    F --> G["Notes"]
+    F --> H["Tasks"]
+    F --> I["Reminders"]
+    F --> J["Daily brief / search"]
+    F --> K["AI conversation"]
+    G --> L[("Local SQLite database")]
+    H --> L
+    I --> L
+    J --> L
+    K --> M["Optional local Ollama model"]
+    L --> N["Result returned to the interface"]
+    M --> N
+    N --> O["You see the response"]
+```
+
+### Hosted demo workflow
+
+The public GitHub Pages demo runs in your browser. Its sample workspace data stays in browser storage, while AI chat is sent to the separate Cloudflare Workers AI backend. This hosted workflow does **not** connect to your PC, local database, installed apps or local Ollama instance.
+
+```mermaid
+flowchart TD
+    A["You open the live demo"] --> B["GitHub Pages website"]
+    B --> C["Browser interface"]
+    C --> D{"Choose an action"}
+    D --> E["Demo notes / tasks / reminders"]
+    E --> F["Browser storage"]
+    D --> G["AI chat"]
+    G --> H["Cloudflare Worker API"]
+    H --> I["Cloudflare Workers AI"]
+    I --> J["AI reply"]
+    J --> C
+    F --> C
+```
+
+### Workflow at a glance
+
+| Step | Local application | Hosted demo |
+|---|---|---|
+| Interface | Terminal or local dashboard | GitHub Pages website |
+| Productivity data | Local SQLite database | Browser sample data |
+| AI chat | Optional Ollama integration | Cloudflare Workers AI |
+| Access to your PC | Runs locally, but does not currently provide general PC control | No access to your PC |
+| Best for | Using the local productivity tools | Trying the public interface and demo chat |
+
+> **Current boundary:** A chat reply is not the same as an operating-system action. Opening desktop apps, controlling windows and executing arbitrary PC commands are not implemented yet; they remain future roadmap work.
+
+---
+
 ## ⚡ Get started
 
 ### Requirements
